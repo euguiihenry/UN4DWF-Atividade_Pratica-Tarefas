@@ -1,0 +1,52 @@
+<nav class="nav justify-content-center bg-success mt-4 border border-light border-3 rounded">
+    <h2 class="text-center text-light h2-date">{{today | date: 'dd/MM/yyyy'}}</h2>
+</nav>
+
+<div class="d-flex justify-content-end my-3">
+    <button class="btn btn-primary" [routerLink] = "['/nova']">
+        Adicionar
+        <span class="bi bi-plus-circle text-center text-light"></span>
+    </button>
+</div>
+
+<div class="mt-1 row justify-content-center">
+
+    <div class="col-4 card mx-1 mb-1" style="width: 18rem;" *ngFor="let item of $any(todoList); let i=index">
+        <div class="card-body">
+
+            <h6 class="card-subtitle fw-bolder"
+                [style.color]="item.value.itemPriority === 'alto' ? 'red' : (item?.value.itemPriority === 'baixo' ? 'green' : 'orange')"
+                [style.font-weight]="'bolder'">
+                {{ item?.value.itemCategory | uppercase}}
+            </h6>
+
+            <h5 class="card-title mb-2">
+
+                <span class="bi bi-circle-fill"
+                    [style.color]="(item.value.itemPriority === 'alto')? 'red':  (item.value.itemPriority === 'baixo')? 'green': 'yellow'"></span>
+
+                {{ item.value.itemName }}
+            </h5>
+
+
+
+            <p class="card-text text-muted fw-bolder">
+                Vencimento {{item.value.itemDueDate | date:'fullDate'}}
+            </p>
+
+
+
+            <button type="button" class="btn btn-warning mx-1" [routerLink]="['/atualiza', item.key]">
+                Editar
+                <span class="bi bi-pencil-square"></span>
+            </button>
+
+            <button type="button" class="btn btn-danger">
+                Deletar
+                <span class="bi bi-trash"></span>
+            </button>
+
+        </div>
+    </div>
+
+</div>
