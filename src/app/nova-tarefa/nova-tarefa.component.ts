@@ -33,7 +33,7 @@ export class NovaTarefaComponent implements OnInit {
         itemName: this.itemName,
         itemDueDate: this.itemDueDate,
         itemPriority: this.itemPriority,
-        itemCategory: this.itemCategory
+        itemCategory: this.categorySelectedCategory
       };
 
       this.tarefaServ.addTask(uid, this.newTaskObj);
