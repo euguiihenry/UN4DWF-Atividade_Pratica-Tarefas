@@ -41,9 +41,16 @@ export class HomeComponent implements OnInit {
   constructor(private tarefaServ: TarefaService) { }
 
   ngOnInit(): void {
-
-    this.todoList = this.tarefaServ.getAllTasks();
+    this.getAllTasks();
     
   }
 
+  public getAllTasks() {
+    this.todoList = this.tarefaServ.getAllTasks();
+  }
+
+  public delete(key: string) {
+    this.tarefaServ.deleteTask(key);
+    this.getAllTasks();
+  }
 }

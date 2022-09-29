@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NovaTarefaComponent } from './nova-tarefa/nova-tarefa.component';
+import { AtualizaTarefaComponent } from './atualiza-tarefa/atualiza-tarefa.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'nova',
     component: NovaTarefaComponent
+  },
+  {
+    path: 'atualiza/:id',
+    component: AtualizaTarefaComponent
   }
 ];
 

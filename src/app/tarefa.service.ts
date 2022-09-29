@@ -27,7 +27,14 @@ export class TarefaService {
   }
 
   public async getTask(key: string) {
+
     await this.storage.get(key);
+
+    let id: any = this.storage.get(key);
+
+    console.log('This is the id: ', id);
+
+    return id;
   }
 
   public getAllTasks() {
